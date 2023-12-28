@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo Genético</title>
+    <style>
+        body {
+            background-color: #2c3e50;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+            color: #ecf0f1;
+        }
+
+        h1 {
+            color: #3498db;
+            background: #2c3e50;
+            padding: 10px;
+        }
+
+        h2 {
+            color: #3498db;
+            background: #2c3e50;
+            cursor: pointer;
+            padding: 10px;
+            width: 29%;
+            margin: 0 auto;
+        }
+
+        p {
+            color: #bdc3c7;
+        }
+
+        #tabla-container {
+            width: 30%;
+            margin: 20px auto;
+            overflow: hidden;
+            background: #27ae60;
+            display: none; 
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #34495e;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body background="https://cienciaybiologia.com/wp-content/uploads/2021/04/adn-genes-proyecto-genoma-humano-2.jpg">
+    <h1>Algoritmo Genético</h1>
+    <img src="https://resizer.glanacion.com/resizer/v2/se-lo-califico-como-uno-de-los-hitos-cientificos-TMS4TR73KFEYTKS63LA7NVSW4I.jpg?auth=3fca4ce6741657682a106f103b9c524f893ad0a63a48cd1425107783668839d5&width=768&quality=70&smart=false" alt="Imagen del algoritmo genético">
+    <br>
+    <br>
+    <h2 onclick="toggleTable()">Mejor Gen Encontrado ▼</h2>
+    <div id="tabla-container">
+        <table>
+            <tr>
+                <th>Variable</th>
+                <th>Valor</th>
+            </tr>
+            {% for variable, valor in mejor_gen.items() %}
+                <tr>
+                    <td>{{ variable }}</td>
+                    <td>{{ valor }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <p>Función de Adaptación: {{ adaptacion }}</p>
+    </div>
+
+    <script>
+        function toggleTable() {
+            var tablaContainer = document.getElementById("tabla-container");
+            tablaContainer.style.display = (tablaContainer.style.display === "none") ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
